@@ -33,16 +33,11 @@ namespace ProblemSolver.Services.Problem1
         public Problem1Output SolveProblem(Problem1Input input)
         {
             var allNumbers = new List<int>();
-            //Parallel.ForEach(input.InputNumbers, (number) =>
-            //{
-            //    var foundNumbers = FindNumbers(number, input.MaxNumber);
-            //    allNumbers.AddRange(foundNumbers);
-            //});
-
-            var foundNumbers1 = FindNumbers(input.InputNumbers[0], input.MaxNumber);
-            var foundNumbers2 = FindNumbers(input.InputNumbers[1], input.MaxNumber);
-            allNumbers.AddRange(foundNumbers1);
-            allNumbers.AddRange(foundNumbers2);
+            Parallel.ForEach(input.InputNumbers, (number) =>
+            {
+                var foundNumbers = FindNumbers(number, input.MaxNumber);
+                allNumbers.AddRange(foundNumbers);
+            });
 
             var result = allNumbers
                 .OrderBy(x => x)
