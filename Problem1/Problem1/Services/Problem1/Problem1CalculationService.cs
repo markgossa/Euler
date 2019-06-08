@@ -9,9 +9,9 @@ using System.Threading.Tasks;
 
 namespace ProblemSolver.Services.Problem1
 {
-    class Problem1CalculationService : ICalculationService<Problem1Input, Problem1Output>
+    public class Problem1CalculationService : ICalculationService<Problem1Input, Problem1Output>
     {
-        List<int> FindNumbers(int number, int numberMax)
+        public List<int> FindMultiplesOfNumberUnderMaxNumber(int number, int numberMax)
         {
             int i = 0;
             var numbers = new List<int>();
@@ -33,11 +33,11 @@ namespace ProblemSolver.Services.Problem1
         public Problem1Output SolveProblem(Problem1Input input)
         {
             var allNumbers = new List<int>();
-            Parallel.ForEach(input.InputNumbers, (number) =>
+            foreach(int number in input.InputNumbers)
             {
-                var foundNumbers = FindNumbers(number, input.MaxNumber);
+                var foundNumbers = FindMultiplesOfNumberUnderMaxNumber(number, input.MaxNumber);
                 allNumbers.AddRange(foundNumbers);
-            });
+            };
 
             var result = allNumbers
                 .OrderBy(x => x)
