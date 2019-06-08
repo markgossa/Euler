@@ -3,6 +3,7 @@ using ProblemSolver.Models.Problem2;
 using ProblemSolver.Services.Common;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace ProblemSolver.Services.Problem2
@@ -11,12 +12,11 @@ namespace ProblemSolver.Services.Problem2
     {
         private List<int> _fibonnaciSequence { get; set; }
         private int _maxNumber { get; set; }
-        private int _fibonnaciSequenceEvenNumbers { get; set; }
 
-        public Problem2CalculationService(Problem2Input input)
-        {
-            _maxNumber = input.MaxNumber;
-        }
+        //public Problem2CalculationService(Problem2Input input)
+        //{
+        //    _maxNumber = input.MaxNumber;
+        //}
 
         private void GetFibonnaciSequence()
         {
@@ -40,9 +40,8 @@ namespace ProblemSolver.Services.Problem2
             this._maxNumber = input.MaxNumber;
 
             GetFibonnaciSequence();
-            var helpers = new Helpers();
-            var evenNumbers = helpers.GetEvenNumbers(_fibonnaciSequence);
-            var sum = helpers.AddNumbers(evenNumbers);
+            var evenNumbers = _fibonnaciSequence.GetEven();
+            var sum = evenNumbers.Sum();
 
             var result = new Problem2Output()
             {

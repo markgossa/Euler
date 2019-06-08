@@ -34,7 +34,7 @@ namespace ProblemSolver
             var stopwatch = new Stopwatch();
             stopwatch.Start();
 
-            var problem2CalculationService = new Problem2CalculationService(input);
+            var problem2CalculationService = new Problem2CalculationService();
             var output = problem2CalculationService.SolveProblem(input);
             var problem2ConsoleOutputService = new Problem2ConsoleOutputService();
             problem2ConsoleOutputService.ReturnResults(input, output);
