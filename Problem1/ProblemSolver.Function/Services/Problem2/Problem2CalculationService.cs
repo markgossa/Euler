@@ -13,11 +13,6 @@ namespace ProblemSolver.Function.Services.Problem2
         private List<int> _fibonnaciSequence { get; set; }
         private int _maxNumber { get; set; }
 
-        //public Problem2CalculationService(Problem2Input input)
-        //{
-        //    _maxNumber = input.MaxNumber;
-        //}
-
         private void GetFibonnaciSequence()
         {
             int i = 2;

@@ -5,8 +5,8 @@ using System.Text;
 
 namespace ProblemSolver.Function.Contracts
 {
-    public interface IFunctionService
+    public interface IFunctionService<out T>
     {
-        IActionResult Process(string requestBody);
+        T Process(string requestBody);
     }
 }

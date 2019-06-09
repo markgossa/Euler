@@ -8,7 +8,7 @@ using System.Text;
 
 namespace ProblemSolver.Function.Services.Problem1
 {
-    public class Problem1FunctionService : IFunctionService
+    public class Problem1FunctionService : IFunctionService<Problem1Output>
     {
         private readonly ICalculationService<Problem1Input, Problem1Output> Problem1CalculationService;
 
@@ -17,12 +17,12 @@ namespace ProblemSolver.Function.Services.Problem1
             Problem1CalculationService = problem1CalculationService;
         }
 
-        public IActionResult Process(string requestBody)
+        public Problem1Output Process(string requestBody)
         {
             var input = JsonConvert.DeserializeObject<Problem1Input>(requestBody);
             var result = Problem1CalculationService.SolveProblem(input);
             result.Question = "Problem 1: Find the sum of all the multiples of 3 or 5 below 1000.";
-            return new OkObjectResult(result);
+            return result;
         }
     }
 }
