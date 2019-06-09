@@ -11,16 +11,24 @@ using Microsoft.Azure.WebJobs.Extensions.Http;
 using Microsoft.Azure.WebJobs.Host;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
+using ProblemSolver.Function.Contracts;
 using ProblemSolver.Function.Models;
 using ProblemSolver.Function.Models.Problem1;
 using ProblemSolver.Function.Services.Problem1;
 
 namespace ProblemSolver.Function.Functions
 {
-    public static class ProblemSolver
+    public class ProblemSolver
     {
+        private IFunctionService Problem1FunctionService { get; set; }
+
+        public ProblemSolver(IFunctionService problem1FunctionService)
+        {
+            Problem1FunctionService = problem1FunctionService;
+        }
+
         [FunctionName("ProblemSolver")]
-        public static IActionResult Run([HttpTrigger(AuthorizationLevel.Function, "post", Route = null)]HttpRequest req)
+        public IActionResult Run([HttpTrigger(AuthorizationLevel.Function, "post", Route = null)]HttpRequest req)
         {
             var requestBody = new StreamReader(req.Body).ReadToEnd();
             var problemNumber = JsonConvert.DeserializeObject<ProblemInfo>(requestBody);
@@ -29,8 +37,7 @@ namespace ProblemSolver.Function.Functions
             {
                 case 1:
                     {
-                        var problem1FunctionService = new Problem1FunctionService();
-                        return problem1FunctionService.Process(requestBody);
+                        return Problem1FunctionService.Process(requestBody);
                     }
                 default:
                     return new BadRequestObjectResult($"Problem not found. Please enter a valid problem number.");

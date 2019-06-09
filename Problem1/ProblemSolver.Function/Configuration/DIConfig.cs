@@ -1,11 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Autofac;
+﻿using Microsoft.Azure.Functions.Extensions.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection;
+using ProblemSolver.Function.Contracts;
+using ProblemSolver.Function.Models.Problem1;
+using ProblemSolver.Function.Services.Problem1;
+
+[assembly: FunctionsStartup(typeof(ProblemSolver.Function.Configuration.Startup))]
 
 namespace ProblemSolver.Function.Configuration
 {
-    class DIConfig
+    public class Startup : FunctionsStartup
     {
+        public override void Configure(IFunctionsHostBuilder builder)
+        {
+            builder.Services.AddSingleton<ICalculationService<Problem1Input, Problem1Output>, Problem1CalculationService>();
+            builder.Services.AddSingleton<IFunctionService, Problem1FunctionService>();
+        }
     }
 }
