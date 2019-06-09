@@ -15,7 +15,7 @@ using ProblemSolver.Function.Services.Problem1;
 
 namespace ProblemSolver.Function.Functions
 {
-    public static class Problem1Function
+    public static class ProblemSolver
     {
         [FunctionName("ProblemSolver")]
         public static IActionResult Run([HttpTrigger(AuthorizationLevel.Function, "post", Route = null)]HttpRequest req,
