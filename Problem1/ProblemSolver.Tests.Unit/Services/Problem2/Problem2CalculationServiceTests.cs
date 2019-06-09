@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using ProblemSolver.Models.Problem2;
-using ProblemSolver.Services.Problem2;
+using ProblemSolver.Function.Models.Problem2;
+using ProblemSolver.Function.Services.Problem2;
 using Xunit;
 
-namespace ProblemSolver.Tests.Unit.Services.Problem2
+namespace ProblemSolver.Function.Tests.Unit.Services.Problem2
 {
 
     public class Problem2CalculationServiceTests
