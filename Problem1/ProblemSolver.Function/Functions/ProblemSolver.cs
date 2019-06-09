@@ -1,3 +1,4 @@
+using System;
 using System.IO;
 using System.Linq;
 using System.Net;
@@ -10,6 +11,7 @@ using Microsoft.Azure.WebJobs.Extensions.Http;
 using Microsoft.Azure.WebJobs.Host;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
+using ProblemSolver.Function.Models;
 using ProblemSolver.Function.Models.Problem1;
 using ProblemSolver.Function.Services.Problem1;
 
@@ -18,16 +20,21 @@ namespace ProblemSolver.Function.Functions
     public static class ProblemSolver
     {
         [FunctionName("ProblemSolver")]
-        public static IActionResult Run([HttpTrigger(AuthorizationLevel.Function, "post", Route = null)]HttpRequest req,
-            ILogger log)
+        public static IActionResult Run([HttpTrigger(AuthorizationLevel.Function, "post", Route = null)]HttpRequest req)
         {
             var requestBody = new StreamReader(req.Body).ReadToEnd();
-            var input = JsonConvert.DeserializeObject<Problem1Input>(requestBody);
+            var problemNumber = JsonConvert.DeserializeObject<ProblemInfo>(requestBody);
 
-            var problem1CalculationService = new Problem1CalculationService();
-            var result = problem1CalculationService.SolveProblem(input);
-
-            return new OkObjectResult(result);
+            switch (problemNumber.ProblemNumber)
+            {
+                case 1:
+                    {
+                        var problem1FunctionService = new Problem1FunctionService();
+                        return problem1FunctionService.Process(requestBody);
+                    }
+                default:
+                    return new BadRequestObjectResult($"Problem not found. Please enter a valid problem number.");
+            }
         }
     }
 }
