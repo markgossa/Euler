@@ -13,8 +13,4 @@
     </PackageReference>
   </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\Problem1\ProblemSolver.csproj" />
-  </ItemGroup>
-
 </Project>
