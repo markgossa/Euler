@@ -1,10 +1,10 @@
-﻿using ProblemSolver.Contracts;
-using ProblemSolver.Models.Problem1;
+﻿using ProblemSolver.Function.Contracts;
+using ProblemSolver.Function.Models.Problem1;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace ProblemSolver.Services.Problem1
+namespace ProblemSolver.Function.Services.Problem1
 {
     class Problem1ConsoleInputService : IConsoleInputService<Problem1Input>
     {

@@ -1,12 +1,12 @@
-﻿using ProblemSolver.Contracts;
-using ProblemSolver.Models.Problem2;
-using ProblemSolver.Services.Common;
+﻿using ProblemSolver.Function.Contracts;
+using ProblemSolver.Function.Models.Problem2;
+using ProblemSolver.Function.Services.Common;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace ProblemSolver.Services.Problem2
+namespace ProblemSolver.Function.Services.Problem2
 {
     public class Problem2CalculationService : ICalculationService<Problem2Input, Problem2Output>
     {

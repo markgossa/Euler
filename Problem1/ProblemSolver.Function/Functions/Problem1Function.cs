@@ -10,10 +10,10 @@ using Microsoft.Azure.WebJobs.Extensions.Http;
 using Microsoft.Azure.WebJobs.Host;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
-using ProblemSolver.Models.Problem1;
-using ProblemSolver.Services.Problem1;
+using ProblemSolver.Function.Models.Problem1;
+using ProblemSolver.Function.Services.Problem1;
 
-namespace ProblemSolver.Functions
+namespace ProblemSolver.Function.Functions
 {
     public static class Problem1Function
     {

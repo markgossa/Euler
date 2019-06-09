@@ -1,13 +1,13 @@
-﻿using ProblemSolver.Contracts;
-using ProblemSolver.Models;
-using ProblemSolver.Models.Problem1;
+﻿using ProblemSolver.Function.Contracts;
+using ProblemSolver.Function.Models;
+using ProblemSolver.Function.Models.Problem1;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ProblemSolver.Services.Problem1
+namespace ProblemSolver.Function.Services.Problem1
 {
     public class Problem1CalculationService : ICalculationService<Problem1Input, Problem1Output>
     {

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace ProblemSolver.Contracts
+namespace ProblemSolver.Function.Contracts
 {
     interface IConsoleInputService<out T>
     {

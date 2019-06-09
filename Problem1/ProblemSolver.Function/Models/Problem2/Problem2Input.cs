@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace ProblemSolver.Models.Problem2
+namespace ProblemSolver.Function.Models.Problem2
 {
     public class Problem2Input
     {

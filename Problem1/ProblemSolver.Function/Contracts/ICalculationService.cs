@@ -1,7 +1,7 @@
-﻿using ProblemSolver.Models.Problem1;
+﻿using ProblemSolver.Function.Models.Problem1;
 using System.Collections.Generic;
 
-namespace ProblemSolver.Contracts
+namespace ProblemSolver.Function.Contracts
 {
     internal interface ICalculationService<in T1, out T2>
     {

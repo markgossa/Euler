@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace ProblemSolver.Models.Problem2
+namespace ProblemSolver.Function.Models.Problem2
 {
     public class Problem2Output
     {
