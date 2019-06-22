@@ -4,7 +4,7 @@ using ProblemSolver.Function.Models.Problem2;
 using ProblemSolver.Function.Services.Problem2;
 using Xunit;
 
-namespace ProblemSolver.Function.Tests.Unit.Services.Problem2
+namespace ProblemSolver.Tests.Unit.Services.Problem2
 {
 
     public class Problem2CalculationServiceTests
